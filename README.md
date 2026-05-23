@@ -1,24 +1,21 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=28&pause=2000&color=0000FF&center=true&vCenter=true&width=700&lines=Pawjects;Modern+Open-Source+Experiences;Minimal+%E2%80%A2+Lightweight+%E2%80%A2+Practical" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=28&pause=2000&color=FFFFFF&center=true&vCenter=true&width=750&lines=Pawjects;Modern+Open-Source+Experiences;Minimal+%E2%80%A2+Lightweight+%E2%80%A2+Practical" alt="Typing SVG" />
 
 <br/>
 
 <p align="center">
   <a href="https://github.com/pawjects">
-    <img src="https://img.shields.io/github/followers/pawjects?label=Followers&style=for-the-badge&color=000000&labelColor=111111"/>
-  </a>
-  
-  <a href="https://github.com/pawjects?tab=repositories">
-    <img src="https://img.shields.io/badge/Open%20Source-Projects-000000?style=for-the-badge&logo=opensourceinitiative&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Organization-Pawjects-000000?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
 
   <a href="https://pawjects.github.io/">
     <img src="https://img.shields.io/badge/Website-Live-000000?style=for-the-badge&logo=googlechrome&logoColor=white"/>
   </a>
 
-  <img src="https://img.shields.io/badge/Maintained-Yes-000000?style=for-the-badge&logo=github&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Open%20Source-Projects-000000?style=for-the-badge&logo=opensourceinitiative&logoColor=white"/>
 
+  <img src="https://img.shields.io/badge/Maintained-Yes-000000?style=for-the-badge&logo=git&logoColor=white"/>
 </p>
 
 <p align="center">
@@ -33,11 +30,11 @@
 
 **Pawjects** is an independent development organisation focused on building modern utilities, Android projects, Telegram bots, open-source tools and experimental web applications.
 
-The organisation follows a minimal and clean design philosophy while maintaining practical functionality, customization and lightweight performance.
+The organisation follows a minimal and clean development philosophy while maintaining practical functionality, customization and lightweight performance.
 
 ---
 
-## ✨ Philosophy
+# ✨ Philosophy
 
 ```txt
 ⚡ Lightweight Performance
@@ -53,12 +50,27 @@ The organisation follows a minimal and clean design philosophy while maintaining
 
 <div align="center">
 
-| Project | Description |
-|:--|:--|
-| 🐾 **PawGram** | Refined Instagram-based experience with built-in iOS emojis, cleaner UI and ad-free usage |
-| 📥 **PawDownloader** | Utility project designed for simple and fast media downloading workflows |
-| 🎵 **Pawtify** | Music-inspired concept focused on smooth UI and modern streaming aesthetics |
-| ▶️ **PawTube** | Minimal video-focused platform inspired by familiar viewing experiences |
+<a href="https://github.com/iamsky837/PawGram">
+  <img src="https://img.shields.io/badge/🐾%20PawGram-Instagram%20Experience%20with%20iOS%20Emojis%20%26%20Ad--Free%20UI-000000?style=for-the-badge"/>
+</a>
+
+<br/><br/>
+
+<a href="https://github.com/thepawdevs/PawDownloader">
+  <img src="https://img.shields.io/badge/📥%20PawDownloader-Fast%20%26%20Simple%20Media%20Downloading-000000?style=for-the-badge"/>
+</a>
+
+<br/><br/>
+
+<a href="https://github.com/thepawdevs/Pawtify">
+  <img src="https://img.shields.io/badge/🎵%20Pawtify-Modern%20Music%20Inspired%20Concept%20Project-000000?style=for-the-badge"/>
+</a>
+
+<br/><br/>
+
+<a href="#">
+  <img src="https://img.shields.io/badge/▶️%20PawTube-Minimal%20Video%20Platform%20Concept-000000?style=for-the-badge"/>
+</a>
 
 </div>
 
@@ -74,19 +86,17 @@ The organisation follows a minimal and clean design philosophy while maintaining
 
 ---
 
-# 📊 GitHub Analytics
+# 📊 Organisation Overview
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=iamsky837&show_icons=true&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&icon_color=ffffff&text_color=ffffff"/>
+<img src="https://github-profile-trophy.vercel.app/?username=thepawdevs&theme=onestar&no-frame=true&no-bg=true&margin-w=15"/>
 
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iamsky837&layout=compact&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&text_color=ffffff"/>
+<br/><br/>
 
-</div>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=thepawdevs&repo=PawGram&theme=dark&hide_border=true&bg_color=000000"/>
 
-<div align="center">
-
-<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=iamsky837&bg_color=000000&color=ffffff&line=ffffff&point=888888&hide_border=true"/>
+<img src="https://github-readme-stats.vercel.app/api/pin/?username=thepawdevs&repo=PawDownloader&theme=dark&hide_border=true&bg_color=000000"/>
 
 </div>
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=28&pause=2000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Pawjects;Modern+Open-Source+Experiences;Minimal+%E2%80%A2+Lightweight+%E2%80%A2+Practical" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=28&pause=2000&color=0000FF&center=true&vCenter=true&width=700&lines=Pawjects;Modern+Open-Source+Experiences;Minimal+%E2%80%A2+Lightweight+%E2%80%A2+Practical" alt="Typing SVG" />
 
 <br/>
 
@@ -78,15 +78,15 @@ The organisation follows a minimal and clean design philosophy while maintaining
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=pawjects&show_icons=true&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&icon_color=ffffff&text_color=ffffff"/>
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=iamsky837&show_icons=true&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&icon_color=ffffff&text_color=ffffff"/>
 
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=pawjects&layout=compact&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&text_color=ffffff"/>
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=iamsky837&layout=compact&theme=dark&hide_border=true&bg_color=000000&title_color=ffffff&text_color=ffffff"/>
 
 </div>
 
 <div align="center">
 
-<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=pawjects&bg_color=000000&color=ffffff&line=ffffff&point=888888&hide_border=true"/>
+<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=iamsky837&bg_color=000000&color=ffffff&line=ffffff&point=888888&hide_border=true"/>
 
 </div>
 

@@ -1,0 +1,696 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Pawjects builds modern utilities, open-source tools and minimalist software experiences." />
+<title>Pawjects</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#060816;
+--surface:rgba(17,23,40,.72);
+--surface-2:rgba(255,255,255,.04);
+--border:rgba(255,255,255,.08);
+--text:#f5f7ff;
+--muted:#9ba4bd;
+--blue:#6ea8fe;
+--purple:#9b7bff;
+--pink:#ff6cab;
+--green:#42d392;
+--shadow:0 10px 40px rgba(0,0,0,.35);
+}
+
+body{
+font-family:'Plus Jakarta Sans',sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+line-height:1.7;
+}
+
+.bg-orbs{
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+overflow:hidden;
+}
+
+.orb{
+position:absolute;
+border-radius:999px;
+filter:blur(90px);
+opacity:.45;
+}
+
+.orb-1{
+width:380px;
+height:380px;
+background:#2962ff;
+top:-120px;
+left:-80px;
+}
+
+.orb-2{
+width:320px;
+height:320px;
+background:#8b5cf6;
+right:-80px;
+top:140px;
+}
+
+.orb-3{
+width:260px;
+height:260px;
+background:#ff4fa3;
+bottom:-80px;
+left:40%;
+}
+
+.container{
+width:min(1180px,92%);
+margin:auto;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(18px);
+background:rgba(6,8,22,.55);
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.nav-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 0;
+gap:20px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+font-family:'Syne',sans-serif;
+font-size:1.15rem;
+font-weight:700;
+color:white;
+text-decoration:none;
+}
+
+.logo-image{
+width:42px;
+height:42px;
+border-radius:14px;
+object-fit:cover;
+box-shadow:0 10px 30px rgba(110,168,254,.22);
+}
+
+.menu-btn{
+display:none;
+width:46px;
+height:46px;
+border-radius:14px;
+border:1px solid var(--border);
+background:rgba(255,255,255,.05);
+color:white;
+font-size:1rem;
+cursor:pointer;
+backdrop-filter:blur(14px);
+}
+
+.nav-links{
+display:flex;
+gap:24px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+text-decoration:none;
+color:var(--muted);
+font-size:.96rem;
+transition:.25s ease;
+}
+
+.nav-links a:hover{
+color:white;
+}
+
+.hero{
+padding:120px 0 110px;
+text-align:center;
+}
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 18px;
+border-radius:999px;
+background:rgba(255,255,255,.05);
+border:1px solid var(--border);
+backdrop-filter:blur(12px);
+margin-bottom:30px;
+color:#d7def2;
+}
+
+.hero-badge i{
+color:var(--blue);
+}
+
+.hero h1{
+font-family:'Syne',sans-serif;
+font-size:clamp(3rem,8vw,5.8rem);
+line-height:1;
+letter-spacing:-3px;
+margin-bottom:26px;
+}
+
+.gradient{
+background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:760px;
+margin:auto;
+color:var(--muted);
+font-size:1.08rem;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+margin-top:42px;
+}
+
+.btn{
+padding:15px 24px;
+border-radius:20px;
+text-decoration:none;
+font-weight:600;
+display:inline-flex;
+align-items:center;
+gap:10px;
+transition:.25s ease;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,var(--blue),var(--purple));
+color:white;
+box-shadow:0 12px 30px rgba(110,168,254,.25);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.05);
+border:1px solid var(--border);
+color:white;
+backdrop-filter:blur(14px);
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+section{
+padding:30px 0 90px;
+}
+
+.section-header{
+margin-bottom:40px;
+}
+
+.section-header h2{
+font-family:'Syne',sans-serif;
+font-size:2.3rem;
+letter-spacing:-1px;
+margin-bottom:12px;
+}
+
+.section-header p{
+color:var(--muted);
+max-width:700px;
+}
+
+.grid{
+display:grid;
+gap:22px;
+}
+
+.philosophy-grid{
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+}
+
+.card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:30px;
+padding:30px;
+backdrop-filter:blur(18px);
+box-shadow:var(--shadow);
+transition:.3s ease;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(255,255,255,.13);
+}
+
+.icon-box{
+width:58px;
+height:58px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.2rem;
+margin-bottom:20px;
+}
+
+.blue{background:rgba(110,168,254,.12);color:var(--blue)}
+.purple{background:rgba(155,123,255,.12);color:var(--purple)}
+.pink{background:rgba(255,108,171,.12);color:var(--pink)}
+.green{background:rgba(66,211,146,.12);color:var(--green)}
+
+.card h3{
+margin-bottom:12px;
+font-size:1.08rem;
+}
+
+.card p{
+color:var(--muted);
+font-size:.96rem;
+}
+
+.projects{
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+
+.project-card{
+position:relative;
+overflow:hidden;
+}
+
+.project-link{
+display:inline-flex;
+align-items:center;
+gap:10px;
+margin-top:24px;
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+
+.tech-stack{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:18px;
+}
+
+.tech-item{
+width:78px;
+height:78px;
+border-radius:24px;
+background:var(--surface-2);
+border:1px solid var(--border);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.9rem;
+backdrop-filter:blur(16px);
+transition:.25s ease;
+}
+
+.tech-item:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,.08);
+}
+
+.goals{
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+}
+
+.goal-box{
+display:flex;
+gap:18px;
+align-items:flex-start;
+}
+
+.goal-box .icon-box{
+flex-shrink:0;
+margin-bottom:0;
+width:50px;
+height:50px;
+border-radius:16px;
+}
+
+.footer{
+padding:60px 0 40px;
+text-align:center;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:16px;
+margin-bottom:24px;
+}
+
+.footer-links a{
+padding:14px 22px;
+border-radius:18px;
+background:rgba(255,255,255,.05);
+border:1px solid var(--border);
+text-decoration:none;
+color:white;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.footer p{
+color:var(--muted);
+}
+
+@media(max-width:900px){
+.hero{
+padding:95px 0 75px;
+}
+
+.hero h1{
+font-size:clamp(2.5rem,10vw,4.2rem);
+}
+
+.projects,
+.philosophy-grid,
+.goals{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media(max-width:768px){
+.hero{
+padding:100px 0 80px;
+}
+
+.hero h1{
+letter-spacing:-1px;
+}
+
+.nav-inner{
+padding:16px 0;
+}
+
+.menu-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.nav-links{
+position:absolute;
+top:82px;
+left:4%;
+right:4%;
+background:rgba(10,14,28,.92);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+padding:18px;
+border-radius:24px;
+flex-direction:column;
+align-items:flex-start;
+gap:18px;
+display:none;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.projects,
+.philosophy-grid,
+.goals{
+grid-template-columns:1fr;
+}
+
+.hero-buttons{
+flex-direction:column;
+align-items:center;
+}
+
+.hero-buttons .btn{
+width:100%;
+max-width:320px;
+justify-content:center;
+}
+
+.section-header h2{
+font-size:1.9rem;
+}
+
+.card{
+padding:24px;
+border-radius:26px;
+}
+}
+</style></head>
+<body><div class="bg-orbs">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+</div><nav>
+<div class="container nav-inner">
+<a href="#" class="logo">
+<img src="https://example.com/pawjects-logo.png" alt="Pawjects Logo" class="logo-image">
+Pawjects
+</a><button class="menu-btn" id="menuBtn">
+<i class="fa-solid fa-bars"></i>
+</button><div class="nav-links" id="mobileMenu">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#stack">Stack</a>
+<a href="#goals">Goals</a>
+</div>
+</div>
+</nav><section class="hero">
+<div class="container"><div class="hero-badge">
+<i class="fa-solid fa-sparkles"></i>
+Modern Open-Source Experiences
+</div><h1>
+Building <span class="gradient">minimal</span>, practical and modern software experiences.
+</h1><p>
+Pawjects is an independent development organisation focused on building modern utilities, Android projects, Telegram bots, open-source tools and experimental web applications with customization, simplicity and lightweight performance at the core.
+</p><div class="hero-buttons">
+<a href="https://github.com/pawjects" class="btn btn-primary">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a><a href="https://pawjects.github.io/" class="btn btn-secondary">
+<i class="fa-solid fa-globe"></i>
+Website
+</a>
+</div></div>
+</section><section id="about">
+<div class="container"><div class="section-header">
+<h2>✨ Philosophy</h2>
+<p>
+Pawjects follows a clean and minimalist development philosophy focused on usability, performance and modern interfaces without unnecessary complexity.
+</p>
+</div><div class="grid philosophy-grid"><div class="card">
+<div class="icon-box blue">
+<i class="fa-solid fa-bolt"></i>
+</div>
+<h3>Lightweight Performance</h3>
+<p>
+Fast, optimized and efficient experiences across devices and platforms.
+</p>
+</div><div class="card">
+<div class="icon-box purple">
+<i class="fa-solid fa-wand-magic-sparkles"></i>
+</div>
+<h3>Modern Interfaces</h3>
+<p>
+Minimal and refined UI focused on clarity, simplicity and aesthetics.
+</p>
+</div><div class="card">
+<div class="icon-box green">
+<i class="fa-solid fa-lock-open"></i>
+</div>
+<h3>Open Source</h3>
+<p>
+Accessible and collaborative projects built for community contribution.
+</p>
+</div><div class="card">
+<div class="icon-box pink">
+<i class="fa-solid fa-sliders"></i>
+</div>
+<h3>Customization</h3>
+<p>
+Flexible and user-focused experiences designed around personalization.
+</p>
+</div></div>
+</div>
+</section><section id="projects">
+<div class="container"><div class="section-header">
+<h2>🚀 Featured Projects</h2>
+<p>
+Projects focused on modern UI, practical functionality and refined user experiences.
+</p>
+</div><div class="grid projects"><div class="card project-card">
+<div class="icon-box pink">
+<i class="fa-brands fa-instagram"></i>
+</div>
+<h3>PawGram</h3>
+<p>
+Refined Instagram-based experience with built-in iOS emojis, cleaner UI and ad-free usage.
+</p>
+<a href="https://github.com/pawjects/PawGram" class="project-link">
+View Project
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div><div class="card project-card">
+<div class="icon-box blue">
+<i class="fa-solid fa-download"></i>
+</div>
+<h3>PawDownloader</h3>
+<p>
+Utility project designed for fast and simple media downloading workflows.
+</p>
+<a href="https://github.com/thepawdevs/PawDownloader" class="project-link">
+View Project
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div><div class="card project-card">
+<div class="icon-box green">
+<i class="fa-solid fa-music"></i>
+</div>
+<h3>Pawtify</h3>
+<p>
+Music-inspired concept focused on smooth UI and modern streaming aesthetics.
+</p>
+<a href="https://github.com/thepawdevs/Pawtify" class="project-link">
+View Project
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div><div class="card project-card">
+<div class="icon-box purple">
+<i class="fa-solid fa-play"></i>
+</div>
+<h3>PawTube</h3>
+<p>
+Minimal video-focused platform inspired by familiar and lightweight viewing experiences.
+</p>
+<a href="#" class="project-link">
+View Project
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div></div>
+</div>
+</section><section id="stack">
+<div class="container"><div class="section-header">
+<h2>🛠 Tech Stack</h2>
+<p>
+Technologies used across Pawjects projects and experiments.
+</p>
+</div><div class="tech-stack">
+<div class="tech-item"><i class="fa-brands fa-html5"></i></div>
+<div class="tech-item"><i class="fa-brands fa-css3-alt"></i></div>
+<div class="tech-item"><i class="fa-brands fa-js"></i></div>
+<div class="tech-item"><i class="fa-brands fa-python"></i></div>
+<div class="tech-item"><i class="fa-brands fa-node-js"></i></div>
+<div class="tech-item"><i class="fa-brands fa-github"></i></div>
+</div></div>
+</section><section id="goals">
+<div class="container"><div class="section-header">
+<h2>🎯 Organisation Goals</h2>
+<p>
+Focused on creating useful, accessible and modern software experiences.
+</p>
+</div><div class="grid goals"><div class="card goal-box">
+<div class="icon-box blue">
+<i class="fa-solid fa-gauge-high"></i>
+</div>
+<div>
+<h3>Performance</h3>
+<p>
+Build lightweight and optimized applications for smooth experiences.
+</p>
+</div>
+</div><div class="card goal-box">
+<div class="icon-box pink">
+<i class="fa-solid fa-palette"></i>
+</div>
+<div>
+<h3>Modern UI/UX</h3>
+<p>
+Create clean and modern interfaces with minimal distractions.
+</p>
+</div>
+</div><div class="card goal-box">
+<div class="icon-box green">
+<i class="fa-solid fa-code-branch"></i>
+</div>
+<div>
+<h3>Open Source</h3>
+<p>
+Encourage collaboration and community-driven development.
+</p>
+</div>
+</div><div class="card goal-box">
+<div class="icon-box purple">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<div>
+<h3>Customization</h3>
+<p>
+Provide flexible and customizable user-focused experiences.
+</p>
+</div>
+</div></div>
+</div>
+</section><footer class="footer">
+<div class="container"><div class="footer-links">
+<a href="https://github.com/pawjects">
+<i class="fa-brands fa-github"></i>
+GitHub
+</a><a href="https://pawjects.github.io/">
+<i class="fa-solid fa-globe"></i>
+Website
+</a>
+</div><p>
+Built with creativity, simplicity and curiosity.
+</p></div>
+</footer><script>
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+
+  const icon = menuBtn.querySelector('i');
+
+  if (mobileMenu.classList.contains('active')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-xmark');
+  } else {
+    icon.classList.remove('fa-xmark');
+    icon.classList.add('fa-bars');
+  }
+});
+</script></body>
+</html>

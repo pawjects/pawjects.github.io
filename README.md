@@ -51,19 +51,19 @@ The organisation follows a clean and minimal development philosophy while mainta
   <img src="https://img.shields.io/badge/🐾%20PawGram-Ad--Free%20Instagram%20Experience%20with%20iOS%20Emojis-EC4899?style=for-the-badge"/>
 </a>
 
-<br/><br/>
+<br/>
 
 <a href="https://github.com/thepawdevs/PawDownloader">
   <img src="https://img.shields.io/badge/📥%20PawDownloader-Fast%20%26%20Simple%20Media%20Downloading-3B82F6?style=for-the-badge"/>
 </a>
 
-<br/><br/>
+<br/>
 
 <a href="https://github.com/thepawdevs/Pawtify">
   <img src="https://img.shields.io/badge/🎵%20Pawtify-Modern%20Music%20Inspired%20Concept-10B981?style=for-the-badge"/>
 </a>
 
-<br/><br/>
+<br/>
 
 <a href="#">
   <img src="https://img.shields.io/badge/▶️%20PawTube-Minimal%20Video%20Platform%20Concept-FF0000?style=for-the-badge"/>
@@ -78,22 +78,6 @@ The organisation follows a clean and minimal development philosophy while mainta
 <div align="center">
 
 <img src="https://skillicons.dev/icons?i=html,css,js,python,nodejs,github,vscode&theme=dark" />
-
-</div>
-
----
-
-# 📊 Organisation Overview
-
-<div align="center">
-
-<img src="https://github-profile-trophy.vercel.app/?username=thepawdevs&theme=algolia&no-frame=true&no-bg=true&margin-w=15"/>
-
-<br/><br/>
-
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=iamsky837&repo=PawGram&theme=transparent&hide_border=true"/>
-
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=thepawdevs&repo=PawDownloader&theme=transparent&hide_border=true"/>
 
 </div>
 

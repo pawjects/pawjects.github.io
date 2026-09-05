@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>RETRO ARCADE — 5 Game Console</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23020308'/><text x='8' y='12' font-size='11' text-anchor='middle' fill='%237ff7ff'>&#9733;</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<canvas id="bg" width="480" height="640"></canvas>
+<div id="crt"></div>
+
+<main id="cabinet">
+  <header id="marquee">
+    <canvas id="title" width="520" height="176"></canvas>
+    <div id="shine"></div>
+  </header>
+
+  <div id="picker">
+    <button class="navbtn" id="prevBtn" type="button" aria-label="Previous game">&#9664;</button>
+    <div id="shelf" role="listbox" aria-label="Games" tabindex="0"></div>
+    <button class="navbtn" id="nextBtn" type="button" aria-label="Next game">&#9654;</button>
+  </div>
+
+  <div id="ticker" aria-hidden="true">
+    <div class="t">
+      &#9733; HIGH SCORE HUNTING &nbsp;&#9733;&nbsp; BROWSE THE SHELF &nbsp;&#9733;&nbsp; PRESS 1-5 FOR QUICK LAUNCH &nbsp;&#9733;&nbsp; H RETURNS TO THE HUB &nbsp;&#9733;&nbsp; 5 GAMES &middot; ONE CONSOLE &nbsp;&#9733;&nbsp; INSERT COIN &nbsp;&#9733;&nbsp; &nbsp;&#9733;&nbsp;
+      &#9733; HIGH SCORE HUNTING &nbsp;&#9733;&nbsp; BROWSE THE SHELF &nbsp;&#9733;&nbsp; PRESS 1-5 FOR QUICK LAUNCH &nbsp;&#9733;&nbsp; H RETURNS TO THE HUB &nbsp;&#9733;&nbsp; 5 GAMES &middot; ONE CONSOLE &nbsp;&#9733;&nbsp; INSERT COIN &nbsp;&#9733;&nbsp; &nbsp;&#9733;&nbsp;
+    </div>
+  </div>
+
+  <div id="hint">
+    <b>&#8592; &#8594;</b> browse &nbsp;·&nbsp; <b>ENTER</b> play &nbsp;·&nbsp; <b>1-5</b> quick launch &nbsp;·&nbsp; <b>&#9664; &#9654;</b> scroll &nbsp;·&nbsp; inside a game: <b>H</b> returns to the hub
+  </div>
+</main>
+
+<div id="screen-swarm" class="gscreen"></div>
+<div id="screen-t2048" class="gscreen"></div>
+<div id="screen-snake" class="gscreen"></div>
+<div id="screen-tetris" class="gscreen"></div>
+<div id="screen-breakout" class="gscreen"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

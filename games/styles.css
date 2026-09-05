@@ -1,0 +1,198 @@
+/* =========================================================================
+   RETRO ARCADE — styles
+   Shared shell + console-style game shelf + in-game screens.
+   Loaded by index.html. Zero dependencies.
+   ========================================================================= */
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  height:100%;background:radial-gradient(ellipse at 50% 30%,#0c0e1c 0%,#05060a 75%);
+  font-family:'Courier New',monospace;overflow:hidden;user-select:none;-webkit-user-select:none;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  color:#cfe0ff;
+}
+#bg{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:0}
+#crt{
+  position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.35;
+  background:
+    repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.14) 2px 4px),
+    radial-gradient(ellipse at center,rgba(0,0,0,0) 52%,rgba(0,0,0,.38) 100%);
+  animation:crtflick 4s infinite;
+}
+@keyframes crtflick{0%,100%{opacity:.35}50%{opacity:.32}98%{opacity:.28}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes cardin{from{opacity:0}to{opacity:1}}
+
+/* ---- arcade cabinet body (hub) ---- */
+#cabinet{
+  position:relative;z-index:1;
+  width:min(1040px,calc(100vw - 24px));max-height:calc(100vh - 20px);max-height:calc(100dvh - 20px);
+  margin:10px auto;padding:22px 26px 16px;
+  background:linear-gradient(180deg,#23263a,#12141f 55%,#0a0b13);
+  border:1px solid #2e3350;border-radius:22px;
+  box-shadow:0 0 0 1px #000,0 24px 70px rgba(0,0,0,.65),0 0 110px rgba(0,255,190,.08),inset 0 0 26px rgba(255,255,255,.035);
+  overflow-y:auto;overscroll-behavior:contain;
+  display:flex;flex-direction:column;gap:12px;
+}
+#cabinet::-webkit-scrollbar{width:8px}
+#cabinet::-webkit-scrollbar-thumb{background:#2e3350;border-radius:4px}
+
+/* ---- marquee header ---- */
+#marquee{position:relative;text-align:center;padding-bottom:8px}
+#title{display:block;image-rendering:pixelated;image-rendering:crisp-edges;width:min(520px,88vw);height:auto;margin:0 auto}
+#shine{
+  height:2px;width:min(420px,70vw);margin:8px auto 0;
+  background:linear-gradient(90deg,transparent,rgba(127,247,255,.85),rgba(255,211,77,.9),rgba(127,247,255,.85),transparent);
+  background-size:200% 100%;
+  animation:shine 3.2s linear infinite;
+  box-shadow:0 0 12px rgba(0,255,190,.5);
+}
+@keyframes shine{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* ---- console-style game picker ---- */
+#picker{display:flex;align-items:center;gap:8px;padding:4px 0}
+.navbtn{
+  flex:0 0 auto;width:44px;height:44px;border-radius:50%;
+  font-family:inherit;font-size:16px;line-height:1;color:#7ff7ff;cursor:pointer;
+  background:linear-gradient(180deg,#1b2034,#10131f);
+  border:1px solid #2e3350;
+  box-shadow:0 0 12px rgba(0,255,190,.12),inset 0 0 10px rgba(0,0,0,.5);
+  transition:border-color .12s ease,box-shadow .12s ease,transform .12s ease;
+}
+.navbtn:hover{border-color:#7ff7ff;box-shadow:0 0 18px rgba(0,255,190,.35);transform:translateY(-1px)}
+.navbtn:active{transform:scale(.94)}
+#shelf{
+  flex:1;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:18px max(16px,calc(50% - 130px));scrollbar-width:none;scroll-behavior:smooth;outline:none;
+}
+#shelf::-webkit-scrollbar{display:none}
+.card{
+  position:relative;flex:0 0 260px;scroll-snap-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  padding:18px 14px 14px;cursor:pointer;outline:none;
+  background:linear-gradient(180deg,#1b2034,#0e1120);
+  border:1px solid #262b45;border-radius:16px;
+  transform:scale(.92);opacity:.6;filter:saturate(.65);
+  animation:cardin .4s ease backwards;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,opacity .18s ease,filter .18s ease;
+}
+.card:nth-child(1){animation-delay:.05s}
+.card:nth-child(2){animation-delay:.1s}
+.card:nth-child(3){animation-delay:.15s}
+.card:nth-child(4){animation-delay:.2s}
+.card:nth-child(5){animation-delay:.25s}
+.card:hover{opacity:.85;filter:saturate(.9)}
+.card.sel{
+  transform:scale(1);opacity:1;filter:saturate(1);
+  border-color:var(--acc,#7ff7ff);
+  background:linear-gradient(180deg,#202640,#12151f);
+  box-shadow:0 0 0 2px var(--acc,#7ff7ff),0 14px 36px rgba(0,0,0,.55),0 0 34px var(--acc-glow,rgba(0,255,190,.4));
+}
+.card.sel::before,.card.sel::after{content:'';position:absolute;width:16px;height:16px;pointer-events:none}
+.card.sel::before{top:6px;left:6px;border-top:2px solid var(--acc,#7ff7ff);border-left:2px solid var(--acc,#7ff7ff);border-top-left-radius:7px}
+.card.sel::after{bottom:6px;right:6px;border-bottom:2px solid var(--acc,#7ff7ff);border-right:2px solid var(--acc,#7ff7ff);border-bottom-right-radius:7px}
+.card[data-idx="0"]{--acc:#ff5d6c;--acc-glow:rgba(255,93,108,.45)}
+.card[data-idx="1"]{--acc:#7ff7ff;--acc-glow:rgba(127,247,255,.45)}
+.card[data-idx="2"]{--acc:#5dff8c;--acc-glow:rgba(93,255,140,.45)}
+.card[data-idx="3"]{--acc:#b78bff;--acc-glow:rgba(183,139,255,.45)}
+.card[data-idx="4"]{--acc:#ffd34d;--acc-glow:rgba(255,211,77,.45)}
+
+.cicon{
+  width:112px;height:112px;border-radius:12px;overflow:hidden;
+  background:#020308;box-shadow:0 0 0 1px #000,inset 0 0 18px rgba(0,0,0,.8),0 0 16px var(--acc-glow,rgba(0,255,190,.18));
+}
+.cicon canvas{width:112px;height:112px;image-rendering:pixelated;image-rendering:crisp-edges}
+.cname{font-size:15px;font-weight:bold;letter-spacing:2px;text-align:center;color:var(--acc,#7ff7ff);text-shadow:0 0 10px var(--acc-glow,rgba(0,255,190,.6));white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.ctag{font-size:9px;letter-spacing:3px;color:#4a5168;border:1px solid #262b45;border-radius:20px;padding:2px 10px}
+.cctl{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;min-height:16px}
+.cctl span{
+  font-size:9px;letter-spacing:1px;color:#7f8bb0;background:#0c0f1c;
+  border:1px solid #1f2438;border-radius:4px;padding:1px 6px;white-space:nowrap;
+}
+.playhint{font-size:9px;letter-spacing:2px;color:#4a5168;border:1px solid #1f2438;border-radius:20px;padding:2px 8px}
+.card.sel .playhint{color:#7ff7ff;border-color:#2e3350;text-shadow:0 0 8px rgba(127,247,255,.5)}
+.cbest{margin-top:auto;padding-top:8px;font-size:14px;letter-spacing:1px;color:#ffd34d;text-shadow:0 0 8px rgba(255,211,77,.5)}
+.cbest span{color:#8a6d2e;font-size:10px;letter-spacing:2px;margin-right:4px}
+
+#hint{color:#4a5168;font-size:12px;letter-spacing:1px;text-align:center;line-height:1.8}
+#hint b{color:#7f8bb0;font-weight:normal}
+
+/* ---- marquee ticker ---- */
+#ticker{
+  overflow:hidden;white-space:nowrap;color:#4a5168;
+  font-size:11px;letter-spacing:2px;border-top:1px solid #1c2136;padding-top:8px;
+}
+#ticker .t{display:inline-block;width:max-content;animation:tick 30s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---- game screens (full-viewport, opened over the cabinet) ---- */
+.gscreen{
+  position:fixed;inset:0;z-index:40;
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 30%,#0c0e1c 0%,#05060a 88%);
+  padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));
+  overflow-y:auto;overscroll-behavior:contain;
+}
+.gscreen.open{display:flex;animation:fadein .18s ease}
+.gtopbar{
+  width:min(528px,calc(100vw - 76px));display:flex;align-items:center;justify-content:space-between;
+  gap:10px;margin-bottom:8px;
+}
+.gtitle{font-size:12px;letter-spacing:2px;color:#4a5168;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gtitle b{color:#7f8bb0;font-weight:normal}
+.mbtn{
+  font-family:inherit;font-size:12px;letter-spacing:2px;color:#7ff7ff;cursor:pointer;
+  background:#0c0f1c;border:1px solid #2e3350;border-radius:8px;padding:8px 14px;
+  text-shadow:0 0 8px rgba(127,247,255,.6);
+  box-shadow:0 0 12px rgba(0,255,190,.12);
+  transition:border-color .12s ease,box-shadow .12s ease,transform .12s ease;
+}
+.mbtn:hover{border-color:#7ff7ff;box-shadow:0 0 18px rgba(0,255,190,.3);transform:translateY(-1px)}
+.bezel{
+  --pt:20px;--pl:24px;--pr:24px;--pb:26px;
+  position:relative;padding:var(--pt) var(--pr) var(--pb) var(--pl);
+  background:linear-gradient(180deg,#23263a,#12141f 55%,#0a0b13);
+  border:1px solid #2e3350;border-radius:20px;
+  box-shadow:0 0 0 1px #000,0 24px 70px rgba(0,0,0,.65),0 0 110px rgba(0,255,190,.08),inset 0 0 26px rgba(255,255,255,.035);
+}
+.bezel canvas{
+  display:block;image-rendering:pixelated;image-rendering:crisp-edges;
+  border-radius:8px;background:#020308;touch-action:none;
+  box-shadow:0 0 0 2px #000,0 0 36px rgba(0,255,190,.16);
+}
+.scanlines{
+  position:absolute;top:var(--pt);left:var(--pl);right:var(--pr);bottom:var(--pb);border-radius:8px;
+  pointer-events:none;opacity:.5;
+  background:
+    repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 2px,rgba(0,0,0,.16) 2px 4px),
+    radial-gradient(ellipse at center,rgba(0,0,0,0) 52%,rgba(0,0,0,.40) 100%);
+  animation:crtflick 4s infinite;
+}
+.hint{margin-top:14px;color:#4a5168;font-size:12px;letter-spacing:1px;text-align:center;line-height:1.7}
+.hint b{color:#7f8bb0;font-weight:normal}
+.rot{display:none;margin-top:8px;color:#ffd34d;font-size:10px;letter-spacing:2px;text-align:center;animation:rotblink 1.2s steps(2) infinite}
+@keyframes rotblink{50%{opacity:.35}}
+
+/* ---- responsive: phones & small screens ---- */
+@media (max-width:640px){
+  #cabinet{padding:14px 12px 12px;border-radius:16px;gap:10px}
+  #title{width:min(400px,92vw)}
+  .card{flex-basis:240px}
+  .cicon{width:96px;height:96px}
+  .cicon canvas{width:96px;height:96px}
+  .ctag{letter-spacing:2px;padding:1px 8px}
+  #hint{font-size:11px;line-height:1.7}
+  .gscreen{padding:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left))}
+  .gtopbar{width:calc(100vw - 24px);margin-bottom:6px}
+  .bezel{--pt:12px;--pl:14px;--pr:14px;--pb:16px;border-radius:14px}
+  .bezel canvas,.scanlines{border-radius:6px}
+  .hint{font-size:11px;margin-top:10px}
+  .mbtn{padding:6px 10px;font-size:11px}
+  .navbtn{width:38px;height:38px;font-size:14px}
+}
+@media (max-height:540px){
+  #ticker{display:none}
+  #title{width:min(380px,52vh)}
+  #cabinet{gap:8px;padding-top:10px}
+  #hint{font-size:10px;line-height:1.6}
+}

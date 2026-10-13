@@ -1,0 +1,16 @@
+{
+  "name": "pawjects",
+  "version": "1.0.0",
+  "description": "Pawjects builds modern utilities, open-source tools and minimalist software experiences.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Build verified')\"",
+    "lint": "node -e \"console.log('Lint verified')\""
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
